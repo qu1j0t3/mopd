@@ -40,4 +40,4 @@ char	*nmaGetShort  __P((int));
 char	*nmaGetDevice __P((int));
 __END_DECLS
 
-#endif _NMA_H_
+#endif

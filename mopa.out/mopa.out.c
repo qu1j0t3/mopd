@@ -84,7 +84,7 @@ main (int argc, char **argv)
 	
 #ifdef NOAOUT
 	errx(1, "has no function in NetBSD");
-#endif	
+#endif
 
 	if (argc != 3) {
 		fprintf (stderr, "usage: %s kernel-in sys-out\n", __progname);

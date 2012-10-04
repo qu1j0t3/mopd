@@ -48,4 +48,4 @@ void	mopPrintInfo      __P((FILE *, u_char *, int *, u_short,
 			       u_char, int));
 __END_DECLS
 
-#endif _PRINT_H_
+#endif

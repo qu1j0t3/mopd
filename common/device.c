@@ -129,7 +129,7 @@ deviceEthAddr(ifname, eaddr)
 	
 	(void) close(fd);
 	return;
-#endif	/* DEV_NEW_CONF */
+#endif
 }
 
 void
@@ -210,7 +210,7 @@ deviceInitOne(ifname)
 	}
 #else
 	sprintf(interface,"%s",ifname);
-#endif /* _AIX */
+#endif
 
 	/* Ok, init it just once */
 	
@@ -346,5 +346,5 @@ deviceInitAll()
 	}
 	
 	(void) close(fd);
-#endif /* DEV_NEW_CONF */
+#endif
 }

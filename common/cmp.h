@@ -39,4 +39,4 @@ __BEGIN_DECLS
 int	mopCmpEAddr __P((u_char *, u_char *));
 __END_DECLS
 
-#endif _CMP_H_
+#endif

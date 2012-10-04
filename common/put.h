@@ -45,4 +45,4 @@ void	mopPutHeader __P((u_char *, int *, u_char *, u_char *, u_short, int));
 void	mopPutLength __P((u_char *, int, u_short));
 __END_DECLS
 
-#endif /* _PUT_H_ */
+#endif

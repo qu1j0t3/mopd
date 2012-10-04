@@ -42,4 +42,4 @@ void	mopProcessRC __P((FILE *, struct if_info *, u_char *, int *,
 			  u_char *, u_char *, int, u_short));
 __END_DECLS
 
-#endif _PROCESS_H_
+#endif
