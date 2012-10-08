@@ -22,27 +22,14 @@ MicroVAX II
     7546		TUK50
 
 
-* enable multicast in linux kernel.
+### Enable multicast in linux kernel
+
     # grep MULTIC /usr/src/linux/.config
     CONFIG_IP_MULTICAST=y
 
-* check out and build mopd from git@github.com:qu1j0t3/mopd.git
+### Check out and build mopd
 
-    # mkdir -p /tftpboot/mop/
-    # cd /tftpboot/mop/
-Note that these must not be symlinks (or tftpd won't serve them):
-    # cp ~toby/NetBSD-1.4.1/vax/installation/netboot/boot.mop MOPBOOT.SYS
-    # cp ~toby/NetBSD-1.4.1/vax/installation/netboot/boot.mop 08002b13f87d.SYS
-
-    # ls -lR /tftpboot/
-    /tftpboot/:
-    total 0
-    drwxr-xr-x 2 root root 112 Oct  5 21:41 mop
-
-    /tftpboot/mop:
-    total 144
-    -rw-r--r-- 2 root root 72192 Oct  5 21:40 08002b13f87d.SYS
-    -rw-r--r-- 2 root root 72192 Oct  5 21:40 MOPBOOT.SYS
+From this repository (https://github.com/qu1j0t3/mopd/).
 
 ### tftpd must be running
 
@@ -62,12 +49,29 @@ Note that these must not be symlinks (or tftpd won't serve them):
         # -l is passed by the init script in addition to these options.
         INTFTPD_OPTS="-l -R 4096:32767 -s ${INTFTPD_PATH}"
 
+Note that these must not be symlinks (or tftpd won't serve them):
+
+    # mkdir -p /tftpboot/mop/
+    # cd /tftpboot/mop/
+    # cp ~toby/NetBSD-1.4.1/vax/installation/netboot/boot.mop MOPBOOT.SYS
+    # cp ~toby/NetBSD-1.4.1/vax/installation/netboot/boot.mop 08002b13f87d.SYS
+
+    # ls -lR /tftpboot/
+    /tftpboot/:
+    total 0
+    drwxr-xr-x 2 root root 112 Oct  5 21:41 mop
+
+    /tftpboot/mop:
+    total 144
+    -rw-r--r-- 2 root root 72192 Oct  5 21:40 08002b13f87d.SYS
+    -rw-r--r-- 2 root root 72192 Oct  5 21:40 MOPBOOT.SYS
+
     # /etc/init.d/in.tftpd start
 
 ### nfs server must be running
 
 Follow the diskless setup instructions here:
-
+http://www.netbsd.org/docs/network/netboot/intro.vax.html
 
     # cd /export/client/root
     # tar --numeric-owner -xpzf ~toby/NetBSD-1.4.1/vax/binary/sets/kern.tgz
