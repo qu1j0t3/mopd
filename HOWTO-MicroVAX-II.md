@@ -6,10 +6,8 @@ October, 2012.
 
 The NetBSD distribution used was 1.4.1.
 
-MicroVAX II
------------
 
-### Cards installed
+### MicroVAX II configuration
 
     7606 AF		KA630 MicroVAX II CPU (incl 1MB)
     7609 AH		MS630 8MB parity RAM
@@ -22,14 +20,39 @@ MicroVAX II
     7546		TUK50
 
 
+### My network
+
+For reference, I have used these addresses on my LAN.
+
+    10.0.0.3    pc       # linux server
+    10.0.0.5    gateway
+    10.0.0.63   mvii     # the client MicroVAX II
+
+
 ### Enable multicast in linux kernel
 
     # grep MULTIC /usr/src/linux/.config
     CONFIG_IP_MULTICAST=y
 
+
+### Enable multicast on Ethernet
+
+    # ifconfig eth0 allmulti
+    # ifconfig
+    eth0      Link encap:Ethernet  HWaddr 00:30:1b:b5:5d:49
+              inet addr:10.0.0.3  Bcast:10.0.0.255  Mask:255.255.255.0
+              UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
+              RX packets:1459 errors:0 dropped:0 overruns:0 frame:0
+              TX packets:1149 errors:0 dropped:0 overruns:0 carrier:0
+              collisions:0 txqueuelen:1000
+              RX bytes:136386 (133.1 KiB)  TX bytes:157410 (153.7 KiB)
+              Interrupt:19
+
+
 ### Check out and build mopd
 
 From this repository (https://github.com/qu1j0t3/mopd/).
+
 
 ### tftpd must be running
 
@@ -67,6 +90,7 @@ Note that these must not be symlinks (or tftpd won't serve them):
     -rw-r--r-- 2 root root 72192 Oct  5 21:40 MOPBOOT.SYS
 
     # /etc/init.d/in.tftpd start
+
 
 ### nfs server must be running
 
@@ -125,20 +149,6 @@ Filesystems after installing some sets:
     152K	/export/client/var
 
 
-
-### Enable multicast on Ethernet
-
-    # ifconfig eth0 allmulti
-    # ifconfig
-    eth0      Link encap:Ethernet  HWaddr 00:30:1b:b5:5d:49
-              inet addr:10.0.0.3  Bcast:10.0.0.255  Mask:255.255.255.0
-              UP BROADCAST RUNNING ALLMULTI MULTICAST  MTU:1500  Metric:1
-              RX packets:1459 errors:0 dropped:0 overruns:0 frame:0
-              TX packets:1149 errors:0 dropped:0 overruns:0 carrier:0
-              collisions:0 txqueuelen:1000
-              RX bytes:136386 (133.1 KiB)  TX bytes:157410 (153.7 KiB)
-              Interrupt:19
-
 ### mopd must be running
 
 Successful boot log shown.
@@ -167,6 +177,7 @@ And the following is logged in syslog:
     Oct  6 20:25:53 localhost mopd[8125]: 8:0:2b:13:f8:7d Send me 08002b13f87d
     Oct  6 20:25:53 localhost mopd[8125]: hostname: [ipc] len: 3
     Oct  6 20:25:53 localhost mopd[8125]: 8:0:2b:13:f8:7d Load completed
+
 
 ### bootpd must be running
 
@@ -213,6 +224,7 @@ Successful boot log shown.
     bootpd: info(6):   extended reply, length=548, options=312
     bootpd: info(6):   sending reply (with RFC1048 options)
     bootpd: info(6):   setarp 10.0.0.63 - 08:00:2B:13:F8:7D
+
 
 ### Serial console on MicroVAX II
 
@@ -302,7 +314,8 @@ Successful boot log shown.
 
     login:
 
-### Troubleshooting device nodes
+
+### Troubleshooting
 
 Note that MAKEDEV should already have been run.
 See standard NetBSD installation process:
@@ -319,6 +332,7 @@ Fix:
 
     mvii# cd /dev
     mvii# ./MAKEDEV pty0
+
 
 ### Other information
 
