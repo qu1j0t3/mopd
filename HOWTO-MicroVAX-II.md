@@ -23,6 +23,9 @@ MicroVAX II
 
 
 * enable multicast in linux kernel.
+    # grep MULTIC /usr/src/linux/.config
+    CONFIG_IP_MULTICAST=y
+
 * check out and build mopd from git@github.com:qu1j0t3/mopd.git
 
     # mkdir -p /tftpboot/mop/
@@ -64,6 +67,7 @@ Note that these must not be symlinks (or tftpd won't serve them):
 ### nfs server must be running
 
 Follow the diskless setup instructions here:
+
 
     # cd /export/client/root
     # tar --numeric-owner -xpzf ~toby/NetBSD-1.4.1/vax/binary/sets/kern.tgz
@@ -296,6 +300,10 @@ Successful boot log shown.
 
 ### Troubleshooting device nodes
 
+Note that MAKEDEV should already have been run.
+See standard NetBSD installation process:
+http://mirror.planetunix.net/pub/NetBSD/NetBSD-archive/NetBSD-1.4.1/vax/INSTALL.html
+
     $ telnet mvii
     Trying 10.0.0.63...
     Connected to mvii.
@@ -308,6 +316,6 @@ Fix:
     mvii# cd /dev
     mvii# ./MAKEDEV pty0
 
+### Other information
 
-
-See also: http://lakesdev.blogspot.co.uk/2009/04/netbsd-bbs-and-vaxen.html
+ * http://lakesdev.blogspot.co.uk/2009/04/netbsd-bbs-and-vaxen.html
