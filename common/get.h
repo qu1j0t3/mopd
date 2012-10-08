@@ -46,4 +46,4 @@ void		mopGetHeader __P((u_char *, int *, u_char **, u_char **,
 u_short		mopGetLength __P((u_char *, int));
 __END_DECLS
 
-#endif /* _GET_H_ */
+#endif

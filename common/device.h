@@ -50,4 +50,4 @@ void	mopReadDL __P((void));
 void	mopReadRC __P((void));
 __END_DECLS
 
-#endif _DEVICE_H_
+#endif

@@ -180,4 +180,4 @@
 #define   NMA_C_SOFD_DW4   150	/* DSW-41/42 */
 #define   NMA_C_SOFD_TRA   175	/* DETRA-AA */
 
-#endif _NMADEF_H_
+#endif

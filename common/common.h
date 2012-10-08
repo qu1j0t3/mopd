@@ -97,4 +97,4 @@ struct dllist {
 	off_t		a_lseek;	/* Keep track of pos in newfile */
 };
 
-#endif /* _COMMON_H_ */
+#endif

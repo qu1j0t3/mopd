@@ -39,4 +39,4 @@ __BEGIN_DECLS
 void	mopDumpDL       __P((FILE *, u_char *, int));
 __END_DECLS
 
-#endif _DL_H_
+#endif

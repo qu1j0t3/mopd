@@ -120,16 +120,18 @@ deviceEthAddr(ifname, eaddr)
 			syslog(LOG_ERR,"deviceEthAddr: SIOGIFHWADDR failed. ERRNO: %d\n",errno);
 			continue;
 		}
-		if(memmove((caddr_t)eaddr, (caddr_t)ifr->ifr_hwaddr.sa_data, 6) == NULL){
-			syslog(LOG_ERR, "deviceEthAddr: memmove returned NULL: %m");
-			(void) close(fd);
-			exit(1);
+		if (!strncmp(ifr->ifr_name, ifname, sizeof(ifr->ifr_name))) {
+			if(memmove((caddr_t)eaddr, (caddr_t)ifr->ifr_hwaddr.sa_data, 6) == NULL){
+				syslog(LOG_ERR, "deviceEthAddr: memmove returned NULL: %m");
+				(void) close(fd);
+				exit(1);
+			}
 		}
 	}
 	
 	(void) close(fd);
 	return;
-#endif	/* DEV_NEW_CONF */
+#endif
 }
 
 void
@@ -210,7 +212,7 @@ deviceInitOne(ifname)
 	}
 #else
 	sprintf(interface,"%s",ifname);
-#endif /* _AIX */
+#endif
 
 	/* Ok, init it just once */
 	
@@ -346,5 +348,5 @@ deviceInitAll()
 	}
 	
 	(void) close(fd);
-#endif /* DEV_NEW_CONF */
+#endif
 }

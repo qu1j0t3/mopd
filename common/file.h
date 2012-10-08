@@ -53,4 +53,4 @@ int		GetFileInfo __P((int, u_int32_t *, u_int32_t *, int *,
 		     u_int32_t *, u_int32_t *));
 __END_DECLS
 
-#endif /* _FILE_H_ */
+#endif

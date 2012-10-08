@@ -433,7 +433,7 @@ CheckAOutFile(fd)
 	} else {
 		return(-1);
 	}
-#endif NOAOUT
+#endif
 }
 
 int
@@ -668,7 +668,7 @@ GetAOutFileInfo(fd, load, xfr, a_text, a_text_fill,
 	}
 
 	return(0);
-#endif NOAOUT
+#endif
 }
 
 int

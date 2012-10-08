@@ -39,4 +39,4 @@ __BEGIN_DECLS
 void	mopDumpRC        __P((FILE *, u_char *, int));
 __END_DECLS
 
-#endif _RC_H_
+#endif

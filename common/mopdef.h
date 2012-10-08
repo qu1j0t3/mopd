@@ -193,6 +193,6 @@ extern char rc_mcst[];
 extern char dl_802_proto[];
 extern char rc_802_proto[];
 extern char lp_802_proto[];
-#endif	MOPDEF_SUPRESS_EXTERN
+#endif
 
-#endif _MOPDEF_H_
+#endif

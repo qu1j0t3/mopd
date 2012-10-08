@@ -45,4 +45,4 @@ int	pfRead     __P((int, u_char *, int));
 int	pfWrite    __P((int, u_char *, int, int));
 __END_DECLS
 
-#endif _PF_H_
+#endif
