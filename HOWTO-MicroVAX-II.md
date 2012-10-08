@@ -51,7 +51,7 @@ For reference, I have used these addresses on my LAN.
 
 ### Check out and build mopd
 
-From this repository (https://github.com/qu1j0t3/mopd/).
+From [this repository](https://github.com/qu1j0t3/mopd/).
 
 
 ### tftpd must be running
@@ -317,10 +317,6 @@ Successful boot log shown.
 
 ### Troubleshooting
 
-Note that MAKEDEV should already have been run.
-See standard NetBSD installation process:
-http://mirror.planetunix.net/pub/NetBSD/NetBSD-archive/NetBSD-1.4.1/vax/INSTALL.html
-
     $ telnet mvii
     Trying 10.0.0.63...
     Connected to mvii.
@@ -328,12 +324,17 @@ http://mirror.planetunix.net/pub/NetBSD/NetBSD-archive/NetBSD-1.4.1/vax/INSTALL.
     telnetd: All network ports in use.
     Connection closed by foreign host.
 
+This occurs if you did not run `MAKEDEV all` earlier, per instructions:
+http://www.netbsd.org/docs/network/netboot/files.html
+
 Fix:
 
     mvii# cd /dev
     mvii# ./MAKEDEV pty0
-
+    or
+    mvii# ./MAKEDEV all
 
 ### Other information
 
  * http://lakesdev.blogspot.co.uk/2009/04/netbsd-bbs-and-vaxen.html
+ * NetBSD installation: http://mirror.planetunix.net/pub/NetBSD/NetBSD-archive/NetBSD-1.4.1/vax/INSTALL.html
